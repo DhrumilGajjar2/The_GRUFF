@@ -1,0 +1,239 @@
+:root {
+  --bg-main: #ffffff;
+  --bg-muted: #f9f9f9;
+  --text-primary: #111;
+  --text-secondary: #555;
+  --border-light: #e6e6e6;
+  --accent: #f1c40f;
+  --accent-hover: #d4ac0d;
+}
+
+/* ===============================
+   General Container
+================================ */
+main {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 3rem 2rem;
+  background-color: var(--bg-main);
+}
+
+/* ===============================
+   Hero Section
+================================ */
+section:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-bottom: 5rem;
+}
+
+section:first-child h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1.2rem;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+}
+
+section:first-child p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Hero Buttons */
+section:first-child div > a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  margin-right: 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+section:first-child div > a:first-child {
+  background-color: var(--text-primary);
+  color: #fff;
+}
+
+section:first-child div > a:first-child:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+section:first-child div > a:last-child {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--text-primary);
+}
+
+section:first-child div > a:last-child:hover {
+  background-color: var(--text-primary);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Hero Image */
+section:first-child img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ===============================
+   Featured Categories
+================================ */
+section:nth-child(2) h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  color: var(--text-primary);
+}
+
+section:nth-child(2) > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+section:nth-child(2) > div > div {
+  background-color: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  text-align: center;
+  border: 1px solid var(--border-light);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+section:nth-child(2) > div > div:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
+}
+
+section:nth-child(2) img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+section:nth-child(2) h3 {
+  margin: 0.8rem 0 0.4rem;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+}
+
+section:nth-child(2) a {
+  display: inline-block;
+  margin-bottom: 1.2rem;
+  text-decoration: none;
+  color: var(--accent);
+  font-weight: 600;
+  transition: color 0.25s ease, transform 0.15s ease;
+}
+
+section:nth-child(2) a:hover {
+  color: var(--accent-hover);
+  transform: translateX(4px);
+}
+
+/* ===============================
+   Story / Brand Section
+================================ */
+section:nth-child(3) {
+  background-color: var(--bg-muted);
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  margin: 4rem 0;
+  text-align: center;
+}
+
+section:nth-child(3) h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+  color: var(--text-primary);
+}
+
+section:nth-child(3) p {
+  color: var(--text-secondary);
+  margin-bottom: 1.4rem;
+  line-height: 1.7;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section:nth-child(3) a {
+  text-decoration: none;
+  color: var(--text-primary);
+  border: 1px solid var(--text-primary);
+  padding: 0.7rem 1.6rem;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+section:nth-child(3) a:hover {
+  background-color: var(--text-primary);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   Call To Action
+================================ */
+section:last-child {
+  text-align: center;
+  padding: 3rem 2rem;
+  background-color: var(--text-primary);
+  color: #fff;
+  border-radius: 16px;
+}
+
+section:last-child h2 {
+  font-size: 2.3rem;
+  margin-bottom: 0.75rem;
+}
+
+section:last-child p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: #ddd;
+}
+
+section:last-child a {
+  text-decoration: none;
+  color: var(--text-primary);
+  background-color: var(--accent);
+  padding: 0.8rem 1.8rem;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: background 0.25s ease, transform 0.15s ease;
+}
+
+section:last-child a:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   Responsive
+================================ */
+@media (max-width: 900px) {
+  section:first-child {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  section:first-child div > a {
+    margin: 0.5rem 0;
+  }
+
+  section:nth-child(2) > div {
+    grid-template-columns: 1fr;
+  }
+}

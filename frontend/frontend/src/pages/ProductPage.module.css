@@ -1,0 +1,207 @@
+:root {
+  --text-primary: #111;
+  --text-secondary: #555;
+  --border-light: #e6e6e6;
+  --bg-muted: #fafafa;
+}
+
+/* ===============================
+   General Layout
+================================ */
+main {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 2.5rem 1.5rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ===============================
+   Product Section
+================================ */
+section:first-child {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+/* ===============================
+   Image Section
+================================ */
+section:first-child > div:first-child {
+  flex: 1;
+  min-width: 320px;
+}
+
+section:first-child img {
+  width: 100%;
+  border-radius: 14px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  background-color: var(--bg-muted);
+}
+
+/* Thumbnail Gallery */
+section:first-child > div:first-child > div {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+section:first-child > div:first-child > div img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid var(--border-light);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+section:first-child > div:first-child > div img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* ===============================
+   Info Section
+================================ */
+section:first-child > div:last-child {
+  flex: 1;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Title & Price */
+section:first-child > div:last-child h2 {
+  font-size: 2.2rem;
+  color: var(--text-primary);
+}
+
+section:first-child > div:last-child > p:first-of-type {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Description */
+section:first-child > div:last-child > p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ===============================
+   Form Fields
+================================ */
+section:first-child > div:last-child div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-width: 240px;
+}
+
+section:first-child label {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+section:first-child select,
+section:first-child input[type="number"] {
+  padding: 0.65rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+  font-size: 0.95rem;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+section:first-child select:focus,
+section:first-child input[type="number"]:focus {
+  outline: none;
+  border-color: #111;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+}
+
+/* ===============================
+   Add to Cart Button
+================================ */
+section:first-child button {
+  background-color: var(--text-primary);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 0.9rem 1.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+  margin-top: 1.5rem;
+  width: fit-content;
+}
+
+section:first-child button:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   Additional Info
+================================ */
+section:first-child h4 {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+section:first-child ul {
+  list-style: disc;
+  padding-left: 1.4rem;
+  color: var(--text-secondary);
+}
+
+section:first-child ul li {
+  margin-bottom: 0.4rem;
+}
+
+section:first-child p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ===============================
+   Reviews Section
+================================ */
+section:last-child {
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border-light);
+}
+
+section:last-child h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+section:last-child p {
+  color: var(--text-secondary);
+}
+
+/* ===============================
+   Responsive
+================================ */
+@media (max-width: 900px) {
+  section:first-child {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  section:first-child > div:last-child div {
+    max-width: 100%;
+  }
+
+  section:first-child button {
+    width: 100%;
+    text-align: center;
+  }
+}

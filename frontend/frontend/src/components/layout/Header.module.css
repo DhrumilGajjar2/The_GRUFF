@@ -1,0 +1,117 @@
+/* Header */
+.header {
+  width: 100%;
+  background-color: #0b0b0b;
+  border-bottom: 1px solid #1f1f1f;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Nav container */
+.nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Center nav links */
+.navLinks {
+  display: flex;
+  gap: 2rem;
+}
+
+.navLinks a {
+  color: #cfcfcf;
+  text-decoration: none;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.navLinks a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.25s ease;
+}
+
+.navLinks a:hover {
+  color: #ffffff;
+}
+
+.navLinks a:hover::after {
+  width: 100%;
+}
+
+/* Right actions */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* Login link */
+.login {
+  color: #cfcfcf;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.login:hover {
+  color: #ffffff;
+}
+
+/* Sign up button */
+.signup {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.signup:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Cart button */
+.cart {
+  padding: 0.45rem 1rem;
+  background: #ffffff;
+  color: #000000;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+.cart:hover {
+  background: #e5e5e5;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .navLinks {
+    display: none;
+  }
+}

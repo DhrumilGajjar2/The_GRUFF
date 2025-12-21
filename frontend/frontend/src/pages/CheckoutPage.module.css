@@ -1,0 +1,165 @@
+:root {
+  --bg-main: #ffffff;
+  --bg-muted: #f7f7f7;
+  --border-light: #e6e6e6;
+  --text-primary: #111;
+  --text-secondary: #555;
+  --accent-dark: #111;
+  --accent-danger: #ff4d4f;
+}
+
+/* ===============================
+   Checkout Container
+================================ */
+.checkout {
+  padding: 3rem 2rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-main);
+}
+
+/* Heading */
+.checkout h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  color: var(--text-primary);
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* ===============================
+   Empty Checkout
+================================ */
+.empty-checkout {
+  text-align: center;
+  padding: 5rem 2rem;
+  background-color: var(--bg-muted);
+  border-radius: 12px;
+}
+
+/* ===============================
+   Layout
+================================ */
+.checkout-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2.5rem;
+}
+
+/* ===============================
+   Form Section
+================================ */
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+}
+
+/* Inputs, textarea & select */
+.checkout-form input,
+.checkout-form textarea,
+.checkout-form select {
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.checkout-form input:focus,
+.checkout-form textarea:focus,
+.checkout-form select:focus {
+  border-color: var(--accent-dark);
+  box-shadow: 0 0 0 2px rgba(17, 17, 17, 0.1);
+}
+
+/* Textarea */
+.checkout-form textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* ===============================
+   Error Messages
+================================ */
+.error {
+  color: var(--accent-danger);
+  font-size: 0.85rem;
+  margin-top: -0.4rem;
+}
+
+/* ===============================
+   Submit Button
+================================ */
+.btn-primary {
+  padding: 0.75rem 1rem;
+  background-color: var(--accent-dark);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 0.75rem;
+  transition: background 0.25s ease, transform 0.15s ease;
+}
+
+.btn-primary:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   Summary Section
+================================ */
+.checkout-summary {
+  background-color: var(--bg-muted);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  height: fit-content;
+  position: sticky;
+  top: 90px;
+}
+
+.checkout-summary h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.checkout-summary p {
+  font-size: 0.95rem;
+  margin-bottom: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ===============================
+   Responsive
+================================ */
+@media (max-width: 900px) {
+  .checkout-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-summary {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .checkout {
+    padding: 2rem 1.25rem;
+  }
+
+  .checkout-form,
+  .checkout-summary {
+    padding: 1.5rem;
+  }
+}

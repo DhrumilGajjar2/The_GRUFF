@@ -1,0 +1,140 @@
+:root {
+  --footer-bg: #0f0f0f;
+  --footer-text: #ffffff;
+  --footer-muted: #b5b5b5;
+  --footer-border: #2a2a2a;
+  --footer-accent: #f1c40f;
+  --footer-accent-hover: #e0b90f;
+}
+
+/* Footer container */
+footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 4rem 2rem 2rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Top section layout */
+footer > div:first-child {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+/* Brand section */
+footer h2 {
+  font-size: 1.9rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+footer p {
+  color: var(--footer-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+/* Link sections */
+footer h3 {
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+footer h3::after {
+  content: "";
+  width: 30px;
+  height: 2px;
+  background-color: var(--footer-accent);
+  display: block;
+  margin-top: 6px;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer ul li {
+  margin-bottom: 0.6rem;
+  cursor: pointer;
+  color: var(--footer-muted);
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+footer ul li:hover {
+  color: var(--footer-accent);
+  transform: translateX(4px);
+}
+
+/* Newsletter */
+footer form {
+  display: flex;
+  max-width: 320px;
+}
+
+footer input[type="email"] {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+footer input[type="email"]:focus {
+  outline: 2px solid var(--footer-accent);
+}
+
+footer button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  background-color: var(--footer-accent);
+  color: #111;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+footer button:hover {
+  background-color: var(--footer-accent-hover);
+  transform: translateY(-1px);
+}
+
+/* Bottom copyright */
+footer > div:last-child {
+  text-align: center;
+  font-size: 0.85rem;
+  border-top: 1px solid var(--footer-border);
+  padding-top: 1.5rem;
+  color: #9a9a9a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  footer {
+    padding: 3rem 1.5rem 1.5rem;
+  }
+
+  footer p {
+    max-width: 100%;
+  }
+
+  footer form {
+    flex-direction: column;
+  }
+
+  footer input[type="email"],
+  footer button {
+    border-radius: 4px;
+  }
+
+  footer button {
+    margin-top: 0.75rem;
+  }
+}
