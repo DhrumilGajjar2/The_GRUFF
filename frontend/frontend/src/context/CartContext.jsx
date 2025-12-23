@@ -1,18 +1,30 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
-const CartContext = createContext();
+const CartContext = createContext(null);
 
-export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState(() => {
+// ---------- Helpers ----------
+const getInitialCart = () => {
+  try {
     const stored = localStorage.getItem("cart");
     return stored ? JSON.parse(stored) : [];
-  });
+  } catch (error) {
+    console.error("Failed to parse cart from localStorage", error);
+    return [];
+  }
+};
 
+export function CartProvider({ children }) {
+  const [cartItems, setCartItems] = useState(getInitialCart);
+
+  // ---------- Persist Cart ----------
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
 
+  // ---------- Add to Cart ----------
   function addToCart(product, selectedSize, selectedColor, quantity = 1) {
+    if (quantity <= 0) return;
+
     setCartItems((prev) => {
       const existingIndex = prev.findIndex(
         (item) =>
@@ -22,9 +34,11 @@ export function CartProvider({ children }) {
       );
 
       if (existingIndex !== -1) {
-        const updated = [...prev];
-        updated[existingIndex].quantity += quantity;
-        return updated;
+        return prev.map((item, i) =>
+          i === existingIndex
+            ? { ...item, quantity: item.quantity + quantity }
+            : item
+        );
       }
 
       return [
@@ -42,37 +56,73 @@ export function CartProvider({ children }) {
     });
   }
 
-  function removeFromCart(index) {
-    setCartItems((prev) => prev.filter((_, i) => i !== index));
-  }
-
-  function updateQuantity(index, newQty) {
+  // ---------- Remove Item ----------
+  function removeFromCart(id, size, color) {
     setCartItems((prev) =>
-      prev.map((item, i) => (i === index ? { ...item, quantity: newQty } : item))
+      prev.filter(
+        (item) =>
+          !(
+            item.id === id &&
+            item.size === size &&
+            item.color === color
+          )
+      )
     );
   }
 
+  // ---------- Update Quantity ----------
+  function updateQuantity(id, size, color, newQty) {
+    if (newQty <= 0) {
+      removeFromCart(id, size, color);
+      return;
+    }
+
+    setCartItems((prev) =>
+      prev.map((item) =>
+        item.id === id && item.size === size && item.color === color
+          ? { ...item, quantity: newQty }
+          : item
+      )
+    );
+  }
+
+  // ---------- Clear Cart ----------
   function clearCart() {
     setCartItems([]);
   }
 
-  const cartTotal = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
+  // ---------- Derived State ----------
+  const cartTotal = useMemo(() => {
+    return cartItems.reduce(
+      (sum, item) => sum + item.price * item.quantity,
+      0
+    );
+  }, [cartItems]);
+
+  const cartCount = useMemo(() => {
+    return cartItems.reduce((count, item) => count + item.quantity, 0);
+  }, [cartItems]);
 
   const value = {
     cartItems,
+    cartTotal,
+    cartCount,
     addToCart,
     removeFromCart,
     updateQuantity,
     clearCart,
-    cartTotal,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
 
+// ---------- Custom Hook Safety ----------
 export function useCart() {
-  return useContext(CartContext);
+  const context = useContext(CartContext);
+
+  if (!context) {
+    throw new Error("useCart must be used within a CartProvider");
+  }
+
+  return context;
 }

@@ -3,7 +3,13 @@ import { useCart } from "../context/CartContext";
 import styles from "./CartPage.module.css";
 
 export default function CartPage() {
-  const { cartItems, cartTotal, updateQuantity, removeFromCart } = useCart();
+  const {
+    cartItems,
+    cartTotal,
+    updateQuantity,
+    removeFromCart,
+  } = useCart();
+
   const navigate = useNavigate();
 
   if (cartItems.length === 0) {
@@ -23,8 +29,11 @@ export default function CartPage() {
 
       <div className={styles["cart-layout"]}>
         <div className={styles["cart-items"]}>
-          {cartItems.map((item, index) => (
-            <div key={item.id || index} className={styles["cart-item"]}>
+          {cartItems.map((item) => (
+            <div
+              key={`${item.id}-${item.size}-${item.color}`}
+              className={styles["cart-item"]}
+            >
               <img
                 src={item.image}
                 alt={item.name}
@@ -48,16 +57,22 @@ export default function CartPage() {
                     type="number"
                     min="1"
                     value={item.quantity}
-                    onChange={(e) => {
-                      const qty = Number(e.target.value);
-                      if (qty > 0) updateQuantity(index, qty);
-                    }}
+                    onChange={(e) =>
+                      updateQuantity(
+                        item.id,
+                        item.size,
+                        item.color,
+                        Number(e.target.value)
+                      )
+                    }
                   />
 
                   <button
                     type="button"
                     className={`${styles["btn-secondary"]} ${styles["remove-btn"]}`}
-                    onClick={() => removeFromCart(index)}
+                    onClick={() =>
+                      removeFromCart(item.id, item.size, item.color)
+                    }
                   >
                     Remove
                   </button>
@@ -69,10 +84,12 @@ export default function CartPage() {
 
         <aside className={styles["cart-summary"]}>
           <h3>Summary</h3>
+
           <p>
             Subtotal: <strong>₹{cartTotal}</strong>
           </p>
           <p>Shipping: Calculated at checkout</p>
+
           <p className={styles["cart-total"]}>
             Total: <strong>₹{cartTotal}</strong>
           </p>

@@ -43,3 +43,13 @@ button {
   color: #fff;
   text-decoration: none;
 }
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.errorInput {
+  border: 1px solid red;
+}
