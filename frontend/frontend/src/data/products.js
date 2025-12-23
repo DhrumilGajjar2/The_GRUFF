@@ -1,10 +1,20 @@
 export const PRODUCTS = [
   {
     id: "pant-1",
+    sku: "CHINO-SLIM-BLK",
+    slug: "slim-fit-chinos",
+
     name: "Slim Fit Chinos",
-    price: 1499,
-    currency: "INR",
     category: "Chinos",
+
+    price: 1499,
+    originalPrice: 1799,
+    currency: "INR",
+
+    rating: 4.6,
+    reviewsCount: 124,
+    isNew: true,
+    isFeatured: true,
 
     image:
       "https://images.unsplash.com/photo-1520975916090-3105956dac38?w=600&q=80",
@@ -33,10 +43,20 @@ export const PRODUCTS = [
 
   {
     id: "pant-2",
+    sku: "JOGGER-TAPERED-OLV",
+    slug: "tapered-jogger-pants",
+
     name: "Tapered Jogger Pants",
-    price: 1299,
-    currency: "INR",
     category: "Joggers",
+
+    price: 1299,
+    originalPrice: 1599,
+    currency: "INR",
+
+    rating: 4.4,
+    reviewsCount: 89,
+    isNew: false,
+    isFeatured: true,
 
     image:
       "https://images.unsplash.com/photo-1583001809873-a128495da465?w=600&q=80",
@@ -65,10 +85,20 @@ export const PRODUCTS = [
 
   {
     id: "pant-3",
+    sku: "FORMAL-TAILORED-NVY",
+    slug: "tailored-formal-trousers",
+
     name: "Tailored Formal Trousers",
-    price: 1999,
-    currency: "INR",
     category: "Formal",
+
+    price: 1999,
+    originalPrice: null,
+    currency: "INR",
+
+    rating: 4.7,
+    reviewsCount: 56,
+    isNew: false,
+    isFeatured: false,
 
     image:
       "https://images.unsplash.com/photo-1592878904946-b3cd8ae243d0?w=600&q=80",

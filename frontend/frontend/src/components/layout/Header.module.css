@@ -1,4 +1,4 @@
-/* Header */
+/* ---------- HEADER ---------- */
 .header {
   width: 100%;
   background-color: #0b0b0b;
@@ -6,9 +6,10 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  backdrop-filter: blur(8px);
 }
 
-/* Nav container */
+/* ---------- NAV CONTAINER ---------- */
 .nav {
   max-width: 1200px;
   margin: 0 auto;
@@ -19,26 +20,32 @@
   justify-content: space-between;
 }
 
-/* Logo */
+/* ---------- LOGO ---------- */
 .logo {
   font-size: 1.8rem;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 2px;
   color: #ffffff;
   text-decoration: none;
+  transition: opacity 0.2s ease;
 }
 
-/* Center nav links */
+.logo:hover {
+  opacity: 0.85;
+}
+
+/* ---------- NAV LINKS ---------- */
 .navLinks {
   display: flex;
-  gap: 2rem;
+  gap: 2.2rem;
 }
 
 .navLinks a {
   color: #cfcfcf;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 0.95rem;
   position: relative;
+  padding: 0.2rem 0;
   transition: color 0.2s ease;
 }
 
@@ -46,72 +53,102 @@
   content: "";
   position: absolute;
   left: 0;
-  bottom: -4px;
+  bottom: -6px;
   width: 0;
   height: 2px;
   background-color: #ffffff;
   transition: width 0.25s ease;
 }
 
-.navLinks a:hover {
+.navLinks a:hover,
+.navLinks a:focus-visible {
   color: #ffffff;
 }
 
-.navLinks a:hover::after {
+.navLinks a:hover::after,
+.navLinks a:focus-visible::after {
   width: 100%;
 }
 
-/* Right actions */
+/* ---------- RIGHT ACTIONS ---------- */
 .actions {
   display: flex;
   align-items: center;
   gap: 1.2rem;
 }
 
-/* Login link */
+/* ---------- LOGIN ---------- */
 .login {
   color: #cfcfcf;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
 }
 
-.login:hover {
+.login:hover,
+.login:focus-visible {
   color: #ffffff;
 }
 
-/* Sign up button */
+/* ---------- SIGNUP ---------- */
 .signup {
-  padding: 0.4rem 0.9rem;
+  padding: 0.45rem 1rem;
   border: 1px solid #ffffff;
   color: #ffffff;
   text-decoration: none;
-  font-size: 0.9rem;
-  transition: background 0.2s ease, color 0.2s ease;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  transition: background 0.2s ease, color 0.2s ease,
+    transform 0.15s ease;
 }
 
 .signup:hover {
   background: #ffffff;
   color: #000000;
+  transform: translateY(-1px);
 }
 
-/* Cart button */
+/* ---------- CART ---------- */
 .cart {
+  position: relative;
   padding: 0.45rem 1rem;
   background: #ffffff;
   color: #000000;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-decoration: none;
-  border-radius: 2px;
+  border-radius: 4px;
+  transition: background 0.2s ease, transform 0.15s ease;
 }
 
 .cart:hover {
-  background: #e5e5e5;
+  background: #eaeaea;
+  transform: translateY(-1px);
 }
 
-/* Responsive */
+/* Optional cart count badge (future ready) */
+.cart::after {
+  content: attr(data-count);
+  display: none;
+}
+
+/* ---------- FOCUS ACCESSIBILITY ---------- */
+a:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+/* ---------- RESPONSIVE ---------- */
 @media (max-width: 900px) {
+  .nav {
+    padding: 0.9rem 1.2rem;
+  }
+
   .navLinks {
     display: none;
+  }
+
+  .logo {
+    font-size: 1.5rem;
   }
 }

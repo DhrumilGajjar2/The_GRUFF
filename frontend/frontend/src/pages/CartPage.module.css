@@ -1,10 +1,10 @@
 :root {
   --bg-main: #ffffff;
-  --bg-muted: #f7f7f7;
-  --border-light: #e6e6e6;
-  --text-primary: #111;
-  --text-secondary: #555;
-  --accent-dark: #111;
+  --bg-muted: #f8f8f8;
+  --border-light: #e9e9e9;
+  --text-primary: #0f0f0f;
+  --text-secondary: #666;
+  --accent-dark: #0f0f0f;
   --accent-danger: #ff4d4f;
   --accent-danger-hover: #d9363e;
 }
@@ -13,17 +13,17 @@
    Cart Container
 ================================ */
 .cart {
-  padding: 3rem 2rem;
+  padding: 4rem 2rem;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: var(--bg-main);
+  background: linear-gradient(180deg, #ffffff, #fafafa);
 }
 
 /* Heading */
 .cart h2 {
-  font-size: 2.1rem;
-  margin-bottom: 2rem;
-  color: var(--text-primary);
-  letter-spacing: 0.5px;
+  font-size: 2.3rem;
+  margin-bottom: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 0.4px;
 }
 
 /* ===============================
@@ -32,29 +32,31 @@
 .empty-cart {
   text-align: center;
   padding: 5rem 2rem;
-  background-color: var(--bg-muted);
-  border-radius: 10px;
+  background: linear-gradient(180deg, #f7f7f7, #f1f1f1);
+  border-radius: 18px;
 }
 
 .empty-cart h2 {
-  font-size: 1.9rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
 }
 
 .empty-cart .link-primary {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   text-decoration: none;
   color: #fff;
   background-color: var(--accent-dark);
-  padding: 0.7rem 1.4rem;
-  border-radius: 6px;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
   font-weight: 600;
-  transition: transform 0.2s ease, background 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .empty-cart .link-primary:hover {
-  background-color: #333;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* ===============================
@@ -62,8 +64,8 @@
 ================================ */
 .cart-layout {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 2.5rem;
+  grid-template-columns: minmax(0, 2.2fr) 1fr;
+  gap: 3rem;
 }
 
 /* ===============================
@@ -72,38 +74,39 @@
 .cart-items {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 2rem;
 }
 
 /* Individual Cart Item */
 .cart-item {
   display: flex;
-  gap: 1.25rem;
+  gap: 1.5rem;
   border: 1px solid var(--border-light);
-  padding: 1.25rem;
-  border-radius: 10px;
-  background-color: #fff;
-  transition: box-shadow 0.25s ease, transform 0.2s ease;
+  padding: 1.5rem;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff, #fbfbfb);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .cart-item:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
 }
 
 /* Item Image */
 .cart-item img {
-  width: 110px;
-  height: 140px;
+  width: 120px;
+  height: 150px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 14px;
+  background: #f3f3f3;
 }
 
 /* Item Info */
 .cart-item-info h3 {
-  font-size: 1.15rem;
-  margin-bottom: 0.4rem;
-  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
 }
 
 .cart-item-info .meta {
@@ -113,9 +116,9 @@
 }
 
 .cart-item-info .price {
-  font-size: 1.05rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
 }
 
 /* ===============================
@@ -124,42 +127,48 @@
 .cart-item-controls {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-top: 0.5rem;
+  gap: 0.8rem;
 }
 
 .cart-item-controls label {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
 }
 
+/* Quantity Input */
 .cart-item-controls input {
-  width: 60px;
-  padding: 0.4rem 0.5rem;
+  width: 64px;
+  padding: 0.45rem 0.6rem;
   border: 1px solid var(--border-light);
-  border-radius: 6px;
+  border-radius: 999px;
   font-size: 0.9rem;
+  text-align: center;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
 }
 
 .cart-item-controls input:focus {
   outline: none;
   border-color: var(--accent-dark);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
 }
 
 /* Remove Button */
 .remove-btn {
-  background-color: var(--accent-danger);
-  color: #fff;
-  border: none;
+  background: transparent;
+  color: var(--accent-danger);
+  border: 1px solid var(--accent-danger);
   padding: 0.45rem 0.9rem;
-  border-radius: 6px;
+  border-radius: 999px;
   cursor: pointer;
-  font-size: 0.85rem;
-  transition: background 0.25s ease, transform 0.15s ease;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background 0.25s ease, color 0.25s ease,
+    transform 0.15s ease;
 }
 
 .remove-btn:hover {
-  background-color: var(--accent-danger-hover);
+  background-color: var(--accent-danger);
+  color: #fff;
   transform: translateY(-1px);
 }
 
@@ -167,32 +176,32 @@
    Summary
 ================================ */
 .cart-summary {
+  border-radius: 22px;
+  padding: 2rem;
+  background: linear-gradient(180deg, #ffffff, #f7f7f7);
   border: 1px solid var(--border-light);
-  padding: 1.5rem;
-  border-radius: 12px;
-  background-color: var(--bg-muted);
-  height: fit-content;
   position: sticky;
   top: 90px;
 }
 
 .cart-summary h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 1.4rem;
 }
 
 .cart-summary p {
-  margin-bottom: 0.9rem;
   font-size: 0.95rem;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 .cart-total {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-top: 1rem;
-  padding-top: 1rem;
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-top: 1.2rem;
+  padding-top: 1.2rem;
   border-top: 1px solid var(--border-light);
 }
 
@@ -201,20 +210,20 @@
 ================================ */
 .btn-primary {
   width: 100%;
-  padding: 0.75rem 1rem;
-  background-color: var(--accent-dark);
+  padding: 0.9rem 1rem;
+  background: linear-gradient(135deg, #000, #222);
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 999px;
   cursor: pointer;
-  font-weight: 600;
-  margin-top: 1.2rem;
-  transition: background 0.25s ease, transform 0.15s ease;
+  font-weight: 700;
+  margin-top: 1.4rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn-primary:hover {
-  background-color: #333;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.25);
 }
 
 /* ===============================
@@ -232,7 +241,7 @@
 
 @media (max-width: 600px) {
   .cart {
-    padding: 2rem 1.25rem;
+    padding: 2.5rem 1.25rem;
   }
 
   .cart-item {
@@ -241,6 +250,6 @@
 
   .cart-item img {
     width: 100%;
-    height: 220px;
+    height: 240px;
   }
 }
