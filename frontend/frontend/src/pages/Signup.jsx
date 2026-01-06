@@ -14,7 +14,7 @@ export default function Signup() {
   const nameRegex = /^[A-Za-z ]{3,}$/;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   const passwordRegex =
-    /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+    /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&]).{12,}$/;
 
   const validate = () => {
     let newErrors = {};
@@ -29,7 +29,7 @@ export default function Signup() {
 
     if (!passwordRegex.test(formData.password)) {
       newErrors.password =
-        "Password must be at least 8 characters with uppercase, lowercase, number & special character";
+        "Password must be at least 12 characters with uppercase, lowercase, number & special character";
     }
 
     setErrors(newErrors);
@@ -90,6 +90,9 @@ export default function Signup() {
           value={formData.password}
           onChange={handleChange}
           className={errors.password ? styles.errorInput : ""}
+          minLength={12}
+          maxLength={12}
+          
         />
         {errors.password && (
           <span className={styles.error}>{errors.password}</span>
